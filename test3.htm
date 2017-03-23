@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.b1 {
+  background: red;
+  height: 60;
+}
+
+.b2 {
+  background: green;
+  height: 100;
+}
+.b3 {
+  background: blue;
+  
+  color: white;
+}
+.layout {
+  display: flex;
+  background: #ffe;
+  height: 100%;
+  justify-content: center;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+</style>
+
+
+<body>
+
+<div class="page">
+
+<div class="layout">
+
+</div>
+
+</div>
+
+
+
+
+
+
+<script>
+
+var boxes = [];
+
+function rand(n) {
+  return Math.floor(Math.random() * n)
+}
+
+function generate() {
+
+
+  var layout = document.getElementsByClassName('layout')[0];
+
+
+
+  for(var i=0; i<50; i++) {
+    var el = document.createElement('div')
+    //var textnode = document.createTextNode("A");         // Create a text node
+
+    layout.appendChild(el);
+    //el.addClass('b' + i);
+    el.style.borderWidth = '1px';
+    el.style.borderColor = 'black';
+    el.style.borderStyle = 'solid';
+    el.style.width = '' + rand(100) + 'px';
+    el.style.height = '' + rand(100) + 'px';
+
+    var colorR = rand(256);
+    var colorG = rand(256);
+    var colorB = rand(256);
+    el.style.backgroundColor = 'rgb('+colorR+','+colorG+','+colorB+')';
+    boxes.push(el);
+  }
+}
+
+generate();
+
+// function getsize() {
+//   for(var i = 1; i<=5; i++) {
+    
+//     var node = document.querySelectorAll('.boxa.box' + i)[0];
+//     document.querySelectorAll('.b' + i)[0].textContent = parseInt(node.getBoundingClientRect().width)+"px";
+//   }
+// }
+
+// window.onresize = function(event) {
+//   getsize();
+// };
+
+// getsize();
+
+
+</script>
+
+</body>
+</html>
